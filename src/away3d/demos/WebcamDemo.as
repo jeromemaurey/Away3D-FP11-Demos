@@ -68,6 +68,8 @@ package away3d.demos
 			
 			// init webcam texture and material
 			_webcamTexture = new WebcamTexture();
+			_webcamTexture.flipHorizontal();
+			_webcamTexture.flipVertical();
 			_material = new TextureMaterial( _webcamTexture, true, false, false);
 			
 			// create mesh

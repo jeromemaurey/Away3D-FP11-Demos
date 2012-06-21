@@ -1,8 +1,11 @@
 package
 {
+	import away3d.demos.CCTVDemo;
 	import away3d.demos.WebcamDemo;
 	
 	import flash.display.Sprite;
+	import flash.display.StageAlign;
+	import flash.display.StageScaleMode;
 	import flash.events.Event;
 	
 	import org.osflash.signals.natives.NativeSignal;
@@ -13,6 +16,7 @@ package
 	{
 		
 		private var _webcamDemo:WebcamDemo;
+		private var _cctvDemo:CCTVDemo;
 		
 		public function Main()
 		{
@@ -21,7 +25,19 @@ package
 		
 		private function onAddedToStage( e:Event ):void
 		{
-			runWebDemo();
+			stage.scaleMode = StageScaleMode.NO_SCALE;
+			stage.align = StageAlign.TOP_LEFT;
+			
+			//runWebDemo();
+			runCCTVDemo();
+		}
+		
+		private function runCCTVDemo():void
+		{
+			_cctvDemo = new CCTVDemo();
+			addChild( _cctvDemo );
+			
+			_cctvDemo.start();
 		}
 		
 		private function runWebDemo():void
